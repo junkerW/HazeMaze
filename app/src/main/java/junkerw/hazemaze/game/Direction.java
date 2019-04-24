@@ -1,10 +1,10 @@
 package junkerw.hazemaze.game;
 
 public class Direction {
-    public static final int SOUTH = 0;
-    public static final int NORTH = 1;
-    public static final int EAST = 2;
-    public static final int WEST = 3;
+    public static final int SOUTH = 2;
+    public static final int NORTH = 0;
+    public static final int EAST = 3;
+    public static final int WEST = 1;
 
     public int direction;
 
@@ -61,5 +61,12 @@ public class Direction {
     public static Direction[] getAllDirections() {
         Direction[] dirs = {new Direction(Direction.SOUTH), new Direction(Direction.NORTH),  new Direction(Direction.EAST), new Direction(Direction.WEST)};
         return dirs;
+    }
+
+    public void rotateLeft(){
+        this.setDirection(this.getDirection() < 3 ? this.getDirection() + 1 : 0);
+    }
+    public void rotateRight(){
+        this.setDirection(this.getDirection() > 0 ? this.getDirection() - 1 : 3);
     }
 }

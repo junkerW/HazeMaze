@@ -30,6 +30,10 @@ public class Maze {
 
 	public Maze(int size) throws Exception {
 
+		int minSize = 2;
+		if (size < minSize) {
+			throw new Exception("Chosen size too small should be bigger than " + minSize);
+		}
 		this.size = size;
 
 		//increase size to dimension for border and walls of maze
@@ -79,7 +83,7 @@ public class Maze {
 
 		this.setTreated(pos);
 		while (treatedCells < cells) {
-            Log.w("Treated Cells: ", Integer.toString(treatedCells));
+//            Log.w("Treated Cells: ", Integer.toString(treatedCells));
             while (inDeadEnd(pos)) {
                 pos = stepBack(pos);
             }
