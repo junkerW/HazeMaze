@@ -1,11 +1,6 @@
 package junkerw.hazemaze.maze;
 
-public class Border extends Field{
-
-    @Override
-    public boolean isFree() {
-        return false;
-    }
+public class Exit extends Space {
 
     @Override
     public boolean isEntrance() {
@@ -14,7 +9,6 @@ public class Border extends Field{
 
     @Override
     public boolean isExit() {
-        return false;
+        return true;
     }
-
 }

@@ -8,6 +8,39 @@ public class Position {
         this.row = row;
     }
 
+    public Position(Position pos) {
+        this.row = pos.getRow();
+        this.col = pos.getCol();
+    }
+    public Position(Position pos, int offsetCol, int offsetRow) {
+        this.row = pos.getRow() + offsetRow;
+        this.col = pos.getCol() + offsetCol;
+    }
+
+    public Position(Position pos, Direction dir) {
+        this.row = pos.getRow();
+        this.col = pos.getCol();
+        this.change(dir);
+    }
+
+    public Position change(Direction dir) {
+        switch (dir.getDirection()) {
+            case Direction.SOUTH:
+                this.row++;
+                break;
+            case Direction.NORTH:
+                this.row--;
+            break;
+            case Direction.EAST:
+                this.col++;
+            break;
+            case Direction.WEST:
+                this.col--;
+            break;
+        }
+        return this;
+    }
+
     public int getRow() {
         return row;
     }

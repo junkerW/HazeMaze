@@ -5,17 +5,22 @@ public class Space extends Field {
     private int visitedCount = 0;
 
     @Override
-    public int getType(int col, int row) {
-        return Field.TYPE_SPACE;
-    }
-
-    @Override
     public boolean isFree() {
         return true;
     }
 
     @Override
     public boolean isOccupied() {
+        return !isFree();
+    }
+
+    @Override
+    public boolean isEntrance() {
+        return false;
+    }
+
+    @Override
+    public boolean isExit() {
         return false;
     }
 
@@ -25,4 +30,5 @@ public class Space extends Field {
     public boolean wasVisited() {
         return visitedCount > 0 ? true : false;
     }
+
 }
