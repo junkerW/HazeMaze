@@ -27,6 +27,8 @@ public class Maze {
     //private int[][] maze = { { 0, 0, 0, 0, 0 }, { 2, 1, 1, 0, 0 },{ 0, 0, 1, 0, 0 }, { 0, 0, 1, 1, 1 }, { 0, 0, 0, 0, 0 } };
 //	private int[][] maze;
 	private Field[][] maze;
+	private Position entrance;
+	private Position exit;
 
 	public Maze(int size) throws Exception {
 
@@ -79,6 +81,7 @@ public class Maze {
 		int treatedCells = 1;
 
 		Position pos = new Position(2,2);
+		entrance = new Position(pos);
 		this.setField(pos, new Entrance());
 
 		this.setTreated(pos);
@@ -99,7 +102,8 @@ public class Maze {
 
         }
 
-		this.setField(new Position(dimension - 3, dimension - 3), new Exit());
+		exit = new Position(dimension - 3, dimension - 3);
+		this.setField(exit, new Exit());
 
 		return maze;
 		// Create Exit and Entrance
@@ -201,5 +205,17 @@ public class Maze {
     private void setField(Position pos, Field field){
 	    maze[pos.getCol()][pos.getRow()] = field;
     }
+    
+    public Position getEntrance(){
+		return this.entrance;
+	}
+
+	public boolean isWalkable(Position pos){
+		return this.getField(pos).isFree();
+	}
+
+	public Position getExit() {
+		return this.exit;
+	}
 
 }

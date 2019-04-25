@@ -90,6 +90,7 @@ public class GameWindow extends AppCompatActivity {
             return false;
         }
     };
+    private Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +113,7 @@ public class GameWindow extends AppCompatActivity {
         final TextView lines = findViewById(R.id.textLine1);
         lines.setMovementMethod(new ScrollingMovementMethod());
 
-        final Game game = Game.getGame();
+       game = new Game(3);
 
         butt_left.setOnClickListener(new View.OnClickListener() {
             @Override

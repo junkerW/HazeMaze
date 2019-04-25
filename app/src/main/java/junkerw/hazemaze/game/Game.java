@@ -4,32 +4,41 @@ import junkerw.hazemaze.maze.Maze;
 
 public class Game {
     private static Game game = null;
-    private Game(){
+    Maze maze;
+    Player player;
+    public Game(int mazeSize){
+
         try {
-            Maze maze = new Maze(3);
+            maze = new Maze(mazeSize);
+            player = new Player(maze.getEntrance(), Direction.getRandomDirection());
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        Player player = new Player(new Position(2,2), Direction.getRandomDirection());
-
-    }
-
-    public static Game getGame(){
-        if (game == null){
-            return new Game();
-        } else {
-            return game;
         }
     }
 
     public String inputLeft(){
-        return "left";
+        player.rotateLeft();
+        return "Rotating left";
     }
     public String inputRight(){
-        return "right";
+        player.rotateRight();
+        return "Rotating right";
     }
     public String inputStraight(){
-        return "straight";
+        Position pos = player.getPosition();
+        Direction dir = player.getHeading();
+        if (maze.isWalkable(new Position(pos,dir))) {
+            player.move();
+            if (player.getPosition().equals(maze.getExit())) {
+                return "You found the exit!";
+            } else if (player.getPosition().equals(maze.getEntrance())) {
+                return "You are back at the start";
+            } else {
+                return "Making a step";
+
+            }
+        } else {
+            return "Wall";
+        }
     }
 }

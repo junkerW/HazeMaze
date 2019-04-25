@@ -9,8 +9,8 @@ public class Being {
     private Direction heading;
 
     public Being(Position pos, Direction heading) {
-        this.position = pos;
-        this.heading = heading;
+        this.position = new Position(pos);
+        this.heading = new Direction(heading);
     }
 
     public void move() {
