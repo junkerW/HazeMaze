@@ -16,29 +16,29 @@ public class Game {
         }
     }
 
-    public String inputLeft(){
+    public Event inputLeft(){
         player.rotateLeft();
-        return "Rotating left";
+        return new Event(Event.TYPE_ROTATING,"Rotating left");
     }
-    public String inputRight(){
+    public Event inputRight(){
         player.rotateRight();
-        return "Rotating right";
+        return new Event(Event.TYPE_ROTATING, "Rotating right");
     }
-    public String inputStraight(){
+    public Event inputStraight(){
         Position pos = player.getPosition();
         Direction dir = player.getHeading();
         if (maze.isWalkable(new Position(pos,dir))) {
             player.move();
             if (player.getPosition().equals(maze.getExit())) {
-                return "You found the exit!";
+                return new Event(Event.TYPE_EXIT, "You found the exit!");
             } else if (player.getPosition().equals(maze.getEntrance())) {
-                return "You are back at the start";
+                return new Event(Event.TYPE_ENTANCE, "You are back at the start");
             } else {
-                return "Making a step";
+                return new Event(Event.TYPE_WALKING, "Making a step");
 
             }
         } else {
-            return "Wall";
+            return new Event(Event.TYPE_WALL, "Wall");
         }
     }
 }

@@ -11,9 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.util.HashMap;
-
 import junkerw.hazemaze.game.Game;
 
 /**
@@ -118,19 +115,19 @@ public class GameWindow extends AppCompatActivity {
         butt_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewLine(lines, game.inputLeft());
+                setNewLine(lines, game.inputLeft().getMessage());
             }
         });
         butt_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewLine(lines, game.inputRight());
+                setNewLine(lines, game.inputRight().getMessage());
             }
         });
         butt_straight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewLine(lines, game.inputStraight());
+                setNewLine(lines, game.inputStraight().getMessage());
             }
         });
 
