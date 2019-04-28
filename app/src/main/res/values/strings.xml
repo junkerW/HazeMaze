@@ -11,4 +11,7 @@
     <string name="butt_rotRight">rot R</string>
     <string name="prompt">-</string>
 
+    <string name="title_activity_conclusion">ConclusionActivity</string>
+    <string name="conclusion">Conclusion</string>
+
 </resources>
