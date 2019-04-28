@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import junkerw.hazemaze.game.Event;
 import junkerw.hazemaze.game.Game;
 
 /**
@@ -18,6 +20,11 @@ import junkerw.hazemaze.game.Game;
  * status bar and navigation/system bar) with user interaction.
  */
 public class GameWindow extends AppCompatActivity {
+
+    Button butt_left;
+    Button butt_right;
+    ImageButton butt_straight;
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -99,9 +106,9 @@ public class GameWindow extends AppCompatActivity {
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.textLine1);
 
-        Button butt_left = findViewById(R.id.butt_rotLeft);
-        Button butt_right = findViewById(R.id.butt_rotRight);
-        ImageButton butt_straight = findViewById(R.id.butt_straight);
+        this.butt_left = findViewById(R.id.butt_rotLeft);
+        this.butt_right = findViewById(R.id.butt_rotRight);
+        this.butt_straight = findViewById(R.id.butt_straight);
 
 //        final TextView[] lines = {findViewById(R.id.textLine1),
 //                findViewById(R.id.textLine2),
@@ -127,7 +134,11 @@ public class GameWindow extends AppCompatActivity {
         butt_straight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setNewLine(lines, game.inputStraight().getMessage());
+                Event event = game.inputStraight();
+                setNewLine(lines, event.getMessage());
+                if (event.getStatus() == Event.TYPE_EXIT){
+                    disableButtons();
+                }
             }
         });
 
@@ -209,5 +220,11 @@ public class GameWindow extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    private void disableButtons(){
+        this.butt_left.setEnabled(false);
+        this.butt_right.setEnabled(false);
+        this.butt_straight.setEnabled(false);
     }
 }
