@@ -29,6 +29,8 @@ public class Maze {
 	private Field[][] maze;
 	private Position entrance;
 	private Position exit;
+	private int rows;
+	private int cols;
 
 	public Maze(int size) throws Exception {
 
@@ -40,6 +42,8 @@ public class Maze {
 
 		//increase size to dimension for border and walls of maze
 		this.dimension = size * 2 + 3;
+		this.cols = size * 2 + 1;
+		this.rows = size * 2 + 1;
 
         this.maze = buildMaze();
 
@@ -216,6 +220,33 @@ public class Maze {
 
 	public Position getExit() {
 		return this.exit;
+	}
+
+	public void setVisited(Position pos) {
+		this.getField(pos).increaseVisited();
+	}
+
+	public int getVisitedNo(Position pos) {
+		return this.getField(pos).getVisitedNo();
+	}
+
+	public int getTotalVisitedNo() {
+		int steps = 0;
+		for (int i = 0;i < this.getRows(); i++) {
+			for (int j = 0; j < this.getCols(); j++) {
+				steps += this.getField(new Position(i,j)).getVisitedNo();
+			}
+		}
+		return steps;
+	}
+
+	public int getRows() {
+		return rows;
+	}
+
+
+	public int getCols() {
+		return cols;
 	}
 
 }

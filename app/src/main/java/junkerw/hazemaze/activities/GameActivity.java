@@ -160,7 +160,7 @@ public class GameActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Intent conclusion = new Intent(GameActivity.this,ConclusionActivity.class);
-                                    conclusion.putExtra("steps",5);
+                                    conclusion.putExtra("steps",game.getSteps());
                                     startActivity(conclusion);
                                     finish();
                                 }

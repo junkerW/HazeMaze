@@ -1,12 +1,15 @@
 package junkerw.hazemaze.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import junkerw.hazemaze.R;
 
@@ -85,6 +88,7 @@ public class ConclusionActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,19 +99,33 @@ public class ConclusionActivity extends AppCompatActivity {
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
 
+        TextView steps = findViewById(R.id.stepsView);
+        int step = this.getIntent().getIntExtra("steps",0);
+        steps.append(Integer.toString(step));
 
-        // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
+        Button butt_back = findViewById(R.id.butt_backToMenu);
+        butt_back.setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                toggle();
+            public void onClick(View v) {
+                Intent mainMenu = new Intent(ConclusionActivity.this, MainMenuActivity.class);
+                mainMenu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(mainMenu);
+                finish();
             }
         });
+
+        // Set up the user interaction to manually show or hide the system UI.
+//        mContentView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                toggle();
+//            }
+//        });
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+//        findViewById(R.id.butt_backToMenu).setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override
@@ -120,13 +138,13 @@ public class ConclusionActivity extends AppCompatActivity {
         delayedHide(100);
     }
 
-    private void toggle() {
-        if (mVisible) {
-            hide();
-        } else {
-            show();
-        }
-    }
+//    private void toggle() {
+//        if (mVisible) {
+//            hide();
+//        } else {
+//            show();
+//        }
+//    }
 
     private void hide() {
         // Hide UI first
@@ -134,7 +152,7 @@ public class ConclusionActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        mControlsView.setVisibility(View.GONE);
+//        mControlsView.setVisibility(View.GONE);
         mVisible = false;
 
         // Schedule a runnable to remove the status and navigation bar after a delay

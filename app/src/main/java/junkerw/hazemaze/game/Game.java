@@ -29,6 +29,7 @@ public class Game {
         Direction dir = player.getHeading();
         if (maze.isWalkable(new Position(pos,dir))) {
             player.move();
+            maze.setVisited(player.getPosition());
             if (player.getPosition().equals(maze.getExit())) {
                 return new Event(Event.TYPE_EXIT, "You found the exit!");
             } else if (player.getPosition().equals(maze.getEntrance())) {
@@ -40,5 +41,9 @@ public class Game {
         } else {
             return new Event(Event.TYPE_WALL, "Wall");
         }
+    }
+
+    public int getSteps() {
+        return maze.getTotalVisitedNo();
     }
 }
