@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/hazemaze_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:versionCode="2">
+        android:versionCode="5">
         <activity
             android:name=".activities.ConclusionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
