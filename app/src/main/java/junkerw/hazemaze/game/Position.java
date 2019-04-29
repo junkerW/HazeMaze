@@ -69,4 +69,13 @@ public class Position {
     public void moveEast() {
         //TODO: implement
     }
+
+    @Override
+    public String toString() {
+        return "Col: " + this.getCol() + " Row: " + this.getRow();
+    }
+
+    public boolean equals(Position pos) {
+        return this.getRow() == pos.getRow() && this.getCol() == pos.getCol() ? true : false;
+    }
 }

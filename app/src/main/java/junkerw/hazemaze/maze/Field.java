@@ -7,6 +7,7 @@ public abstract class Field {
 //    public static final int TYPE_BORDER = 2;
     private boolean treated;
     private boolean backtracked;
+    private int visitedNo = 0;
 
 //    public abstract int getType(int col, int row);
 
@@ -38,5 +39,12 @@ public abstract class Field {
 
     public abstract boolean isExit();
 
+    public void increaseVisited(){
+        this.visitedNo++;
+    }
+
+    public int getVisitedNo() {
+        return this.visitedNo;
+    }
 
 }

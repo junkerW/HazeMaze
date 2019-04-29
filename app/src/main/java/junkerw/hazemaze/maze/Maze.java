@@ -27,6 +27,10 @@ public class Maze {
     //private int[][] maze = { { 0, 0, 0, 0, 0 }, { 2, 1, 1, 0, 0 },{ 0, 0, 1, 0, 0 }, { 0, 0, 1, 1, 1 }, { 0, 0, 0, 0, 0 } };
 //	private int[][] maze;
 	private Field[][] maze;
+	private Position entrance;
+	private Position exit;
+	private int rows;
+	private int cols;
 
 	public Maze(int size) throws Exception {
 
@@ -38,6 +42,8 @@ public class Maze {
 
 		//increase size to dimension for border and walls of maze
 		this.dimension = size * 2 + 3;
+		this.cols = size * 2 + 1;
+		this.rows = size * 2 + 1;
 
         this.maze = buildMaze();
 
@@ -79,6 +85,7 @@ public class Maze {
 		int treatedCells = 1;
 
 		Position pos = new Position(2,2);
+		entrance = new Position(pos);
 		this.setField(pos, new Entrance());
 
 		this.setTreated(pos);
@@ -99,7 +106,8 @@ public class Maze {
 
         }
 
-		this.setField(new Position(dimension - 3, dimension - 3), new Exit());
+		exit = new Position(dimension - 3, dimension - 3);
+		this.setField(exit, new Exit());
 
 		return maze;
 		// Create Exit and Entrance
@@ -201,5 +209,44 @@ public class Maze {
     private void setField(Position pos, Field field){
 	    maze[pos.getCol()][pos.getRow()] = field;
     }
+    
+    public Position getEntrance(){
+		return this.entrance;
+	}
+
+	public boolean isWalkable(Position pos){
+		return this.getField(pos).isFree();
+	}
+
+	public Position getExit() {
+		return this.exit;
+	}
+
+	public void setVisited(Position pos) {
+		this.getField(pos).increaseVisited();
+	}
+
+	public int getVisitedNo(Position pos) {
+		return this.getField(pos).getVisitedNo();
+	}
+
+	public int getTotalVisitedNo() {
+		int steps = 0;
+		for (int i = 0;i < this.getRows(); i++) {
+			for (int j = 0; j < this.getCols(); j++) {
+				steps += this.getField(new Position(i,j)).getVisitedNo();
+			}
+		}
+		return steps;
+	}
+
+	public int getRows() {
+		return rows;
+	}
+
+
+	public int getCols() {
+		return cols;
+	}
 
 }

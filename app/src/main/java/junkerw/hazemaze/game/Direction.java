@@ -12,6 +12,10 @@ public class Direction {
         this.direction = dir;
     }
 
+    public Direction(Direction dir){
+        this.direction = dir.getDirection();
+    }
+
     public static Direction getRandomDirection(){
         return new Direction((int) (Math.random() * ((4 - 1) + 1)));
     }

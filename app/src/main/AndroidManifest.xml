@@ -4,21 +4,27 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/hazemaze_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/hazemaze_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:versionCode="5">
         <activity
-            android:name=".GameWindow"
+            android:name=".activities.ConclusionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_game_window"
+            android:label="@string/title_activity_conclusion"
             android:theme="@style/FullscreenTheme"></activity>
         <activity
-            android:name=".MainMenu"
+            android:name=".activities.GameActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_game_window"
             android:theme="@style/FullscreenTheme" />
         <activity
-            android:name=".FullscreenActivity"
+            android:name=".activities.MainMenuActivity"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".activities.StartSplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">

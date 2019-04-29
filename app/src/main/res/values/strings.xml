@@ -1,14 +1,17 @@
 <resources>
     <string name="app_name">HazeMaze</string>
 
-    <string name="dummy_button">Dummy Button</string>
+    <string name="backToMenu">Back to menu</string>
     <string name="game_name">HazeMaze</string>
-    <string name="version">0.0.1</string>
+    <string name="version">0.0.5</string>
 
     <string name="title_activity_game_window">GameWindow</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="butt_rotLeft">rot L</string>
     <string name="butt_rotRight">rot R</string>
     <string name="prompt">-</string>
+    <string name="conclusion">Conclusion</string>
+    <string name="title_activity_conclusion">conclusion</string>
+    <string name="steps">Steps taken: </string>
 
 </resources>

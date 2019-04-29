@@ -1,4 +1,4 @@
-package junkerw.hazemaze;
+package junkerw.hazemaze.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class MainMenu extends AppCompatActivity {
+import junkerw.hazemaze.R;
+
+public class MainMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +24,8 @@ public class MainMenu extends AppCompatActivity {
         butt_singleGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gameWindow = new Intent(MainMenu.this,GameWindow.class);
+                Intent gameWindow = new Intent(MainMenuActivity.this, GameActivity.class);
                 startActivity(gameWindow);
-                finish();
             }
         });
     }
