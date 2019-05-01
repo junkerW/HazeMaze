@@ -20,12 +20,20 @@ public class MainMenuActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main_menu);
         Button butt_singleGame = findViewById(R.id.SingleGame);
+        Button butt_info       = findViewById(R.id.Butt_Info);
 
         butt_singleGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent gameWindow = new Intent(MainMenuActivity.this, GameActivity.class);
                 startActivity(gameWindow);
+            }
+        });
+        butt_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent infoWindow = new Intent(MainMenuActivity.this, InfoActivity.class);
+                startActivity(infoWindow);
             }
         });
     }

@@ -6,7 +6,6 @@
     <string name="version">0.0.5</string>
 
     <string name="title_activity_game_window">GameWindow</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="butt_rotLeft">rot L</string>
     <string name="butt_rotRight">rot R</string>
     <string name="prompt">-</string>
@@ -14,4 +13,10 @@
     <string name="title_activity_conclusion">conclusion</string>
     <string name="steps">Steps taken: </string>
 
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="info_text">
+        This amasing Game was first created by the amasing JunkerW. \n
+        He got the amasing luck to be help by the amasing Carole. \n
+        Cool, cool cool cool.
+    </string>
 </resources>
