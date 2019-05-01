@@ -1,4 +1,5 @@
 package junkerw.hazemaze.game;
+
 import junkerw.hazemaze.being.Player;
 import junkerw.hazemaze.maze.Maze;
 
@@ -6,6 +7,7 @@ public class Game {
     private static Game game = null;
     Maze maze;
     Player player;
+
     public Game(int mazeSize){
 
         try {

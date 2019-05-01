@@ -103,6 +103,11 @@ public class ConclusionActivity extends AppCompatActivity {
         int step = this.getIntent().getIntExtra("steps",0);
         steps.append(Integer.toString(step));
 
+        TextView timeText = findViewById(R.id.text_time);
+        double time = this.getIntent().getLongExtra("time",0);
+        timeText.append(Double.toString(time / 1000));
+        timeText.append(" s");
+
         Button butt_back = findViewById(R.id.butt_backToMenu);
         butt_back.setOnClickListener( new View.OnClickListener() {
             @Override

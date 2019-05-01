@@ -13,5 +13,7 @@
     <string name="conclusion">Conclusion</string>
     <string name="title_activity_conclusion">conclusion</string>
     <string name="steps">Steps taken: </string>
+    <string name="timeNeeded">Time elapsed: </string>
+
 
 </resources>

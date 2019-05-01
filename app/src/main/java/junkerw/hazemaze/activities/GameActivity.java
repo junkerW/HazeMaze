@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.Date;
+
 import junkerw.hazemaze.R;
 import junkerw.hazemaze.game.Event;
 import junkerw.hazemaze.game.Game;
@@ -106,7 +108,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        final Date startTime = new Date();
         setContentView(R.layout.activity_game_window);
 
         mVisible = true;
@@ -144,6 +146,7 @@ public class GameActivity extends AppCompatActivity {
                 Event event = game.inputStraight();
                 setNewLine(lines, event.getMessage());
                 if (event.getStatus() == Event.TYPE_EXIT){
+                    final Date endTime = new Date();
                     disableButtons();
                     new Handler().postDelayed(new Runnable() {
                         @Override
@@ -160,6 +163,7 @@ public class GameActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Intent conclusion = new Intent(GameActivity.this,ConclusionActivity.class);
+                                    conclusion.putExtra("time",endTime.getTime() - startTime.getTime());
                                     conclusion.putExtra("steps",game.getSteps());
                                     startActivity(conclusion);
                                     finish();
