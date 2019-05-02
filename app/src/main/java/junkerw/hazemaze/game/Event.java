@@ -11,8 +11,8 @@ public class Event {
     private String message;
 
     public Event(int status, String message) {
-     this.status = status;
-     this.message = message;
+        this.status = status;
+        this.message = message;
     }
 
     public int getStatus() {
@@ -21,6 +21,14 @@ public class Event {
 
     public String getMessage() {
         return this.message;
+    }
+
+    public boolean equals(Event event) {
+        if (event.getMessage() == this.message && event.getStatus() == this.status) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

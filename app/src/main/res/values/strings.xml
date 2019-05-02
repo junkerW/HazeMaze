@@ -3,7 +3,7 @@
 
     <string name="backToMenu">Back to menu</string>
     <string name="game_name">HazeMaze</string>
-    <string name="version">0.0.5</string>
+    <string name="version">0.0.6</string>
 
     <string name="title_activity_game_window">GameWindow</string>
     <string name="butt_rotLeft">rot L</string>
@@ -21,4 +21,17 @@
         He got the amasing luck to be help by the amasing Carole. \n
         Cool, cool cool cool.
     </string>
+
+    <string name="title_activity_single_game_setting">SingleGameSettingActivity</string>
+
+    <string name="startSingleGame">Enter</string>
+
+
+    <string name="messRotLeft">You rotate left</string>
+    <string name="messRotRight">You rotate right</string>
+    <string name="messWalk">You make a step forward</string>
+    <string name="messExit">You found the Exit</string>
+    <string name="messWall">Wall</string>
+    <string name="messEntr">You are back at the Start</string>
+
 </resources>

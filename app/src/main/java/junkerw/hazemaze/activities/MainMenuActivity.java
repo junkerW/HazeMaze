@@ -36,8 +36,8 @@ public class MainMenuActivity extends AppCompatActivity {
         butt_singleGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gameWindow = new Intent(MainMenuActivity.this, GameActivity.class);
-                startActivity(gameWindow);
+                Intent singleGameConfig = new Intent(MainMenuActivity.this, SingleGameSettingActivity.class);
+                startActivity(singleGameConfig);
             }
         });
         butt_info.setOnClickListener(new View.OnClickListener() {

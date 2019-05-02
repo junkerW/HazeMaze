@@ -1,7 +1,11 @@
 package junkerw.hazemaze.maze;
 
 import android.util.Log;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
+import junkerw.hazemaze.activities.GameActivity;
+import junkerw.hazemaze.activities.MainMenuActivity;
 import junkerw.hazemaze.game.Direction;
 import junkerw.hazemaze.game.Position;
 
@@ -99,8 +103,9 @@ public class Maze {
             if (!behindWallisTreated(pos, direction)) {
                 pos.change(direction); // walk inside wall
                 breakWall(pos);
+				this.getField(pos).setTreated(); // set former wall now space field treated
                 pos.change(direction); // walk on empty space behind wall
-                setTreated(pos); // set empty space behind walll treated
+                setTreated(pos); // set empty space behind wall treated
                 treatedCells++;
             }
 
@@ -128,11 +133,11 @@ public class Maze {
 	        stepField = this.getField(new Position(pos,dir));
 	        if(stepField.isFree() && !stepField.isBacktracked()) {
 	            newPos = new Position(pos,dir);
-	            this.getField(newPos).setBacktracked(true);
+//	            this.getField(newPos).setBacktracked(true);
             }
         }
-	    if (newPos == pos) {
-	        throw new Exception("Stuck!");
+	    if (newPos.equals(pos)) {
+	        throw new Exception("Stuck at Position: " + pos.toString());
         }
 	    return newPos;
     }
@@ -150,7 +155,6 @@ public class Maze {
 
     private void breakWall(Position pos) {
         this.setField(pos, new Space());
-	    this.getField(pos).setTreated();
     }
 
     // check if space behind wall is not treated yet

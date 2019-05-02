@@ -9,12 +9,17 @@
         android:roundIcon="@mipmap/hazemaze_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:versionCode="5">
+        android:versionCode="6">
+        <activity
+            android:name=".activities.SingleGameSettingActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_single_game_setting"
+            android:theme="@style/FullscreenTheme"></activity>
         <activity
             android:name=".activities.InfoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_info"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".activities.ConclusionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
