@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
 
     private View mContentView;
     private Game game;
+    private int size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
         final TextView lines = findViewById(R.id.textLine1);
         lines.setMovementMethod(new ScrollingMovementMethod());
 
-        int size = this.getIntent().getIntExtra("size",3);
+        this.size = this.getIntent().getIntExtra("size",3);
 
         butt_left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +107,8 @@ public class GameActivity extends AppCompatActivity {
                                 public void run() {
                                     Intent conclusion = new Intent(GameActivity.this,ConclusionActivity.class);
                                     conclusion.putExtra("time",endTime.getTime() - startTime.getTime());
-                                    conclusion.putExtra("steps",game.getSteps());
+                                    conclusion.putExtra("steps", game.getSteps());
+                                    conclusion.putExtra("size", size);
                                     startActivity(conclusion);
                                     finish();
                                 }
@@ -117,7 +119,7 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         });
-        game = new Game(size, getResources());
+        game = new Game(this.size, getResources());
 
     }
 

@@ -90,6 +90,10 @@ public class ConclusionActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
+        TextView sizeV = findViewById(R.id.sizeView);
+        int size = this.getIntent().getIntExtra("size",0);
+        sizeV.append(Integer.toString(size));
+
         TextView steps = findViewById(R.id.stepsView);
         int step = this.getIntent().getIntExtra("steps",0);
         steps.append(Integer.toString(step));

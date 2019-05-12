@@ -3,7 +3,7 @@
 
     <string name="backToMenu">Back to menu</string>
     <string name="game_name">HazeMaze</string>
-    <string name="version">0.0.6</string>
+    <string name="version">0.0.7</string>
 
     <string name="title_activity_game_window">GameWindow</string>
     <string name="butt_rotLeft">rot L</string>
@@ -12,6 +12,7 @@
     <string name="conclusion">Conclusion</string>
     <string name="title_activity_conclusion">conclusion</string>
     <string name="steps">Steps taken: </string>
+    <string name="size">Maze size: </string>
     <string name="timeNeeded">Time elapsed: </string>
 
 

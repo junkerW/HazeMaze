@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/hazemaze_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:versionCode="6">
+        android:versionCode="7">
         <activity
             android:name=".activities.SingleGameSettingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
