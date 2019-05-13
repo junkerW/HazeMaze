@@ -1,7 +1,9 @@
 package junkerw.hazemaze.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -99,9 +101,25 @@ public class ConclusionActivity extends AppCompatActivity {
         steps.append(Integer.toString(step));
 
         TextView timeText = findViewById(R.id.text_time);
-        double time = this.getIntent().getLongExtra("time",0);
-        timeText.append(Double.toString(time / 1000));
+        long time = this.getIntent().getLongExtra("time",0);
+        timeText.append(Double.toString((double) time / 1000));
         timeText.append(" s");
+
+        String highScoreKey = "high_score_" + size;
+        SharedPreferences pref = this.getPreferences(Context.MODE_PRIVATE);
+        long highscore = pref.getLong(highScoreKey,0);
+        TextView highscoreText = findViewById(R.id.highscore_textView);
+        highscoreText.setVisibility(View.GONE);
+
+        if (time < highscore || highscore == 0) { // new highscore
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putLong(highScoreKey, time);
+            editor.commit();
+            highscoreText.setVisibility(View.VISIBLE);
+        } else {
+            highscoreText.setVisibility(View.VISIBLE);
+            highscoreText.setText("Fastest: " + (double) highscore / 1000);
+        }
 
         Button butt_back = findViewById(R.id.butt_backToMenu);
         butt_back.setOnClickListener( new View.OnClickListener() {

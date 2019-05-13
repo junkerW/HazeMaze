@@ -3,7 +3,7 @@
 
     <string name="backToMenu">Back to menu</string>
     <string name="game_name">HazeMaze</string>
-    <string name="version">0.0.7</string>
+    <string name="version">0.0.8</string>
 
     <string name="title_activity_game_window">GameWindow</string>
     <string name="butt_rotLeft">rot L</string>
@@ -34,5 +34,7 @@
     <string name="messExit">You found the Exit</string>
     <string name="messWall">Wall</string>
     <string name="messEntr">You are back at the Start</string>
+    <string name="saved_high_score_key">high_score</string>
+    <string name="highscore_text">You\'ve never been faster!</string>
 
 </resources>
